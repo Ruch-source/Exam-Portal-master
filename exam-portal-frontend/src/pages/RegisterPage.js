@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { register } from "../actions/authActions";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,11 +7,13 @@ import { Form, Button, InputGroup, Row, Col } from "react-bootstrap";
 import FormContainer from "../components/FormContainer";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import * as authConstants from "../constants/authConstants";
+import emailjs from "@emailjs/browser";
 import { Link } from "react-router-dom";
 
 const RegisterPage = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -25,11 +27,11 @@ const RegisterPage = () => {
   const [isValidUsername, setIsValidUsername] = useState(true);
   const [isValidPassword, setIsValidPassword] = useState(true);
   const [isValidConfirmPassword, setIsValidConfirmPassword] = useState(true);
-  const [isValidPhone, setIsValidPhone]=useState(true);
+  const [isValidPhone, setIsValidPhone] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const registerReducer = useSelector((state) => state.registerReducer);
-
+  const form = useRef();
   const showPasswordHandler = () => {
     const temp = !showPassword;
     setShowPassword(temp);
@@ -50,10 +52,44 @@ const RegisterPage = () => {
     }
   };
 
+  const sendAutoReply = (username, password, toEmail, firstname) => {
+    emailjs
+      .send(
+        "service_b3wh4dd",
+        "template_ha9be2d",
+        {
+          to_email: toEmail,
+          username: username,
+          password: password,
+          first_name: firstname,
+        },
+        "3sRvVQrnr0OzllQAu"
+      )
+      .then((result) => {
+        console.log(result.text);
+        if (result.status === 200) {
+          console.log("Email sent successfully", result);
+        } else {
+          console.log("Email sending failed", result);
+        }
+        // Optionally show a success toast or message for the auto-reply
+      })
+      .catch((error) => {
+        console.error(error.text);
+        console.log("email sent failed");
+      });
+  };
   const submitHandler = (e) => {
     e.preventDefault();
-    if(isValidFirstName && isValidLastName && isValidUsername && isValidPassword && isValidConfirmPassword && isValidPhone){
-
+    if (
+      isValidFirstName &&
+      isValidLastName &&
+      isValidUsername &&
+      isValidPassword &&
+      isValidConfirmPassword &&
+      isValidPhone
+    ) {
+      sendAutoReply(username, password, email, firstName);
       const user = {
         firstName: firstName,
         lastName: lastName,
@@ -66,11 +102,9 @@ const RegisterPage = () => {
           navigate("/login");
         }
       });
-    }
-    else{
+    } else {
       alert("Invalid data");
     }
-    
   };
   function setNameHandler(name) {
     console.log(isValidFirstName);
@@ -101,13 +135,13 @@ const RegisterPage = () => {
     setIsValidPassword(isValidPassword);
   }
 
-  function setConfirmPasswordHandler(cpassword){
-    const isValidConfirmPassword =cpassword==password;
+  function setConfirmPasswordHandler(cpassword) {
+    const isValidConfirmPassword = cpassword == password;
     setConfirmPassword(cpassword);
     setIsValidConfirmPassword(isValidConfirmPassword);
-    }
+  }
 
-  function setPhoneHandler(phone){
+  function setPhoneHandler(phone) {
     const isValidPhoneNumber = /^[789]\d{9}$/.test(phone);
     setPhoneNumber(phone);
     setIsValidPhone(isValidPhoneNumber);
@@ -116,7 +150,7 @@ const RegisterPage = () => {
   return (
     <FormContainer>
       <h1>Sign Up</h1>
-      <Form onSubmit={submitHandler}>
+      <Form ref={form} onSubmit={submitHandler}>
         <Form.Group className="my-3" controlId="fname">
           <Form.Label>First Name</Form.Label>
           <Form.Control
@@ -150,7 +184,22 @@ const RegisterPage = () => {
             last Name should contain alphabets and be longer than 2 characters.
           </Form.Control.Feedback>
         </Form.Group>
-
+        <Form.Group className="my-3" controlId="lname">
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="Enter email"
+            value={email}
+            // onChange={(e) => {
+            //   setLastName(e.target.value);
+            // }}
+            required
+            onChange={(e) => setEmail(e.target.value)}
+          ></Form.Control>
+          <Form.Control.Feedback type="invalid">
+            valid email
+          </Form.Control.Feedback>
+        </Form.Group>
         <Form.Group className="my-3" controlId="username">
           <Form.Label>User Name</Form.Label>
           <Form.Control
@@ -234,8 +283,8 @@ const RegisterPage = () => {
             isInvalid={!isValidPhone}
           ></Form.Control>
           <Form.Control.Feedback type="invalid">
-             invalid phone number
-            </Form.Control.Feedback>
+            invalid phone number
+          </Form.Control.Feedback>
         </Form.Group>
         <Button
           variant=""
