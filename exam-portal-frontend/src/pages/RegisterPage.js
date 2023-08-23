@@ -72,6 +72,7 @@ const RegisterPage = () => {
         } else {
           console.log("Email sending failed", result);
         }
+        
         // Optionally show a success toast or message for the auto-reply
       })
       .catch((error) => {
