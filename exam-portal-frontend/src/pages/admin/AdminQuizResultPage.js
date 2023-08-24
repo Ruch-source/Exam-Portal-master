@@ -44,9 +44,10 @@ const AdminQuizResultPage = () => {
           <Table bordered className="userQuizResultPage__content--table">
             <thead>
               <tr>
-                <th>Quiz Id</th>
+                {/* <th>Quiz Id</th> */}
                 <th>Quiz Name</th>
                 <th>Category Name</th>
+                <th>Student</th>
                 <th>Obtained Marks</th>
                 <th>Total Marks</th>
                 <th>Date</th>
@@ -56,9 +57,10 @@ const AdminQuizResultPage = () => {
               return (
                 <tbody key={index}>
                   <tr>
-                    <td>{r.quiz.quizId}</td>
+                    {/* <td>{r.quiz.quizId}</td> */}
                     <td>{r.quiz.title}</td>
                     <td>{r.quiz.category.title}</td>
+                    <td>{r.user.firstName} {r.user.lastName} </td>
                     <td>{r.totalObtainedMarks}</td>
                     <td>{r.quiz.numOfQuestions * 5}</td>
                     <td>{r.attemptDatetime}</td>
