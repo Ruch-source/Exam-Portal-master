@@ -52,8 +52,11 @@ const AdminAddQuiz = () => {
         },
       };
       addQuiz(dispatch, quiz, token).then((data) => {
-        if (data.type === quizzesConstants.ADD_QUIZ_SUCCESS)
+        if (data.type === quizzesConstants.ADD_QUIZ_SUCCESS){
           swal("Quiz Added!", `${quiz.title} succesfully added`, "success");
+          // navigate("/adminAddQuestion");
+          
+        }
         else {
           swal("Quiz Not Added!", `${quiz.title} not added`, "error");
         }

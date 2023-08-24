@@ -54,10 +54,12 @@ const AdminQuizResultPage = () => {
               </tr>
             </thead>
             {quizResults.map((r, index) => {
+
               return (
                 <tbody key={index}>
                   <tr>
                     {/* <td>{r.quiz.quizId}</td> */}
+                
                     <td>{r.quiz.title}</td>
                     <td>{r.quiz.category.title}</td>
                     <td>{r.user.firstName} {r.user.lastName} </td>

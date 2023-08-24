@@ -32,7 +32,7 @@ public class QuizResult {
 
     
    
-    @OneToOne
+    @ManyToOne
     private User user;
 
 }
