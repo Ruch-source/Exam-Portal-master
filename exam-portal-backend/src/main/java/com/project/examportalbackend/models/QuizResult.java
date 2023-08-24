@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 
+
 @Entity
 @Getter
 @Setter
@@ -29,5 +30,9 @@ public class QuizResult {
     @ManyToOne(fetch = FetchType.EAGER)
     private Quiz quiz;
 
+    
+   
+    @OneToOne
+    private User user;
 
 }
