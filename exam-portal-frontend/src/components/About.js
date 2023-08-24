@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import imageSrc from '../pages/images/jai.jpg';
-import imagePawan from '../pages/images/Pawan.jpeg';
+import imageSrc from './images/jai.jpg';
+import imagePawan from './images/Pawan.jpeg';
 import '../components/css/About.css';
 import { FaEnvelope, FaInstagram, FaLinkedin, FaPhone } from 'react-icons/fa';
 import Footer from '../components/Footer.js';
