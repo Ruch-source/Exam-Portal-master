@@ -35,7 +35,7 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
+      <Navbar className="bg-dark bg-opacity-75" variant="dark" expand="lg" collapseOnSelect>
         <Container>
           <Navbar.Brand>
             <span style={logostyle}>
@@ -49,7 +49,7 @@ const Header = () => {
                 <b>E</b>
               </i>
             </span>
-            dge Hub
+            dge 
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
