@@ -1,12 +1,13 @@
 /* ...previous styles... */
 
 .carousel {
-  margin-top: 20px;
+  margin-top: 2px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-caption {
   background-color: rgba(0, 0, 0, 0.6);
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   bottom: 20%;
   text-align: center;
@@ -23,26 +24,26 @@
 .homepage {
   text-align: center;
   padding: 50px;
-  background-color: #f7f9fc;
+  background-color:  #ffffff;
 }
 
 .features {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 5px;
 }
 
 .feature {
   flex: 1;
   padding: 20px;
-  background-color: #fff;
+  background-color:#87a7c1;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 0 15px;
 }
 
 .feature h2 {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .feature-icon {
@@ -51,7 +52,7 @@
 }
 
 .cta {
-  margin-top: 50px;
+  margin-top: 5px;
 }
 
 .btn-primary {
@@ -64,3 +65,185 @@
 }
 
 /* ...previous styles... */
+/*Annimation */
+body {
+  margin: 0;
+  padding: 0;
+  background: rgb(16, 28, 48);
+}
+.container-features{
+  padding: 80px 0;
+  background-image: url('../components/images/poster4.jpg');
+  background-size: cover;
+  height: 500px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+
+.lines {
+  flex: 1;
+  padding: 20px;
+  margin: 0; /* Remove top and bottom margin */
+  color: white;
+  justify-content: start;
+}
+
+.lines h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.lines ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.lines li {
+  font-size: 20px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.lines li:before {
+  content: "\2022";
+  color: #f39c12;
+  font-size: 24px;
+  position: absolute;
+  left: -20px;
+  top: 5px;
+}
+
+.animation {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.solar-system {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: 100px auto;
+}
+.sun {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at 40%, rgba(51, 51, 51, 0.4), rgba(51, 51, 51, 0.4) 50%, rgba(238, 238, 238, 0.151) 75%, rgba(51, 51, 51, 0.233) 75%), rgb(255, 230, 0);
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  box-shadow: 0px 0px 6px 6px #494949;
+  z-index: 1;
+}
+
+.earth {
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle at 40%, rgba(51, 51, 51, 0.4), rgba(51, 51, 51, 0.3) 50%, rgba(238, 238, 238, 0.151) 75%, rgba(51, 51, 51, 0.233) 75%), rgb(78, 140, 211);
+  border-radius: 50%;
+  position: absolute;
+  left: -300px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  transition: all 3s;
+  transform: rotate3d(0deg, 0deg, 0deg) scale(1);
+  animation: rotate 3s infinite ease-in-out;
+}
+
+@keyframes rotate {
+  0% {
+      left: -300px;
+      z-index: 3;
+      transform: scale(1);
+  }
+
+  25% {
+      transform: scale(1.2);
+  }
+
+  50% {
+      left: 300px;
+      transform: scale(1);
+  }
+
+  75% {
+      transform: scale(.8);
+  }
+
+  100% {
+      left: -300px;
+      z-index: -1;
+  }
+}
+/*resoponsive */
+/* ... Previous styles ... */
+
+/* Adjust padding and margins for different screen sizes */
+@media (max-width: 576px) {
+  .homepage {
+    padding: 30px;
+  }
+  .feature {
+    margin: 10px;
+    padding: 15px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 992px) {
+  .homepage {
+    padding: 40px;
+  }
+}
+
+@media (min-width: 993px) {
+  .homepage {
+    padding: 50px;
+  }
+}
+
+/* Make images responsive */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Adjust font sizes for responsiveness */
+/* Adjust other styles as needed */
+
+/* Responsive header styles */
+
+
+/* Responsive feature boxes */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.feature {
+  flex: 0 0 calc(33.333% - 30px);
+  margin: 15px;
+  padding: 20px;
+  /* ... Other styles ... */
+}
+
+/* Responsive CTA styles */
+.cta {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* ... Marquee styles ... */

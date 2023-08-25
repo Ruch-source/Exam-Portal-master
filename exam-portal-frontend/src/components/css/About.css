@@ -2,7 +2,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    background-color: #949cc8;
+    background-color: #ffffff;
   }
   
   html {
@@ -14,6 +14,10 @@ body {
   *:after {
     box-sizing: inherit;
   }
+  .card-img-top {
+    display: block;
+    margin: auto;
+  }
   
   .column {
     float: left;
@@ -22,10 +26,10 @@ body {
     padding: 0 8px;
   }
   
-  .card {
+  .card-about {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin: 8px;
-    background-color: #326fa2; /* Dark blue */
+    background-color:#87a7c1; /* Dark blue */
     border-radius: 10px;
     padding: 20px;
   }
@@ -33,23 +37,23 @@ body {
   .about-section {
     padding: 50px;
     text-align: center;
-    background-color: #326fa2; /* Light blue */
+    background-color: #87a7c1; /* Light blue */
     color: white;
   }
   
-  .container {
+  .container-about{
     padding: 0 16px;
   }
   
-  .container::after,
+  .container-abput::after,
   .row::after {
     content: "";
     clear: both;
     display: table;
   }
   
-  .title {
-    color: grey;
+  .title-about {
+    color: rgb(255, 255, 255);
   }
   
   .button {
@@ -114,6 +118,7 @@ body {
   }
   
   
+  
   .section-title {
     text-align: center;
     font-size: 28px;
@@ -123,7 +128,7 @@ body {
   .feature {
     padding: 30px;
     border: 1px solid #472525;
-    background-color: #326fa2;
+    background-color: #87a7c1;
     margin-bottom: 20px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
