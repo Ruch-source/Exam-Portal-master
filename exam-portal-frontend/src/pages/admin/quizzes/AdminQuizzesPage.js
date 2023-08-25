@@ -175,7 +175,7 @@ const AdminQuizzesPage = () => {
         )}
         <Button
           variant=""
-          className="adminQuizzesPage__content--button"
+          className="adminQuizzesPage__content--button bg-info"
           onClick={addNewQuizHandler}
         >
           Add Quiz
