@@ -151,15 +151,13 @@ const RegisterPage = () => {
 
   return (
     <FormContainer>
-     
-      <Form ref={form} onSubmit={submitHandler} className="shadow-lg  p-3 rounded-2 mt-5" style={{backgroundColor:" #87a7c1"}}>
-      <h1 className="text-center fw-bolder text-decoration-underline ">Sign Up</h1>
+      <h1>Sign Up</h1>
+      <Form ref={form} onSubmit={submitHandler}>
         <Form.Group className="my-3" controlId="fname">
-          <Form.Label className="fw-semibold">First Name</Form.Label>
+          <Form.Label>First Name</Form.Label>
           <Form.Control
             type="name"
             placeholder="Enter First Name"
-            className="border-dark"
             value={firstName}
             // onChange={(e) => {
             //   setFirstName(e.target.value);
@@ -173,11 +171,10 @@ const RegisterPage = () => {
         </Form.Group>
 
         <Form.Group className="my-3" controlId="lname">
-          <Form.Label className="fw-semibold">Last Name</Form.Label>
+          <Form.Label>Last Name</Form.Label>
           <Form.Control
             type="name"
             placeholder="Enter Last Name"
-            className="border-dark"
             value={lastName}
             // onChange={(e) => {
             //   setLastName(e.target.value);
@@ -190,11 +187,10 @@ const RegisterPage = () => {
           </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="my-3" controlId="lname">
-          <Form.Label className="fw-semibold">Email</Form.Label>
+          <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
             placeholder="Enter email"
-            className="border-dark"
             value={email}
             // onChange={(e) => {
             //   setLastName(e.target.value);
@@ -207,11 +203,10 @@ const RegisterPage = () => {
           </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="my-3" controlId="username">
-          <Form.Label className="fw-semibold">User Name</Form.Label>
+          <Form.Label>User Name</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter User Name"
-            className="border-dark"
             value={username}
             // onChange={(e) => {
             //   setUsername(e.target.value);
@@ -225,12 +220,11 @@ const RegisterPage = () => {
         </Form.Group>
 
         <Form.Group className="my-3" controlId="password">
-          <Form.Label className="fw-semibold">Password</Form.Label>
+          <Form.Label>Password</Form.Label>
           <InputGroup>
             <Form.Control
               type={`${passwordType}`}
               placeholder="Enter Password"
-              className="border-dark"
               value={password}
               // onChange={(e) => {
               //   setPassword(e.target.value);
@@ -253,12 +247,11 @@ const RegisterPage = () => {
         </Form.Group>
 
         <Form.Group className="my-3" controlId="confirmPassword">
-          <Form.Label className="fw-semibold">Confirm Password</Form.Label>
+          <Form.Label>Confirm Password</Form.Label>
           <InputGroup>
             <Form.Control
               type={`${confirmPasswordType}`}
               placeholder="Confirm Password"
-              className="border-dark"
               value={confirmPassword}
               // onChange={(e) => {
               //   setConfirmPassword(e.target.value);
@@ -280,11 +273,10 @@ const RegisterPage = () => {
         </Form.Group>
 
         <Form.Group className="my-3" controlId="phoneNumber">
-          <Form.Label className="fw-semibold">Phone Number</Form.Label>
+          <Form.Label>Phone Number</Form.Label>
           <Form.Control
             type="tel"
             placeholder="Enter Phone Number"
-            className="border-dark"
             value={phoneNumber}
             // onChange={(e) => {
             //   setPhoneNumber(e.target.value);
@@ -304,7 +296,7 @@ const RegisterPage = () => {
         >
           Register
         </Button>
-      
+      </Form>
 
       {registerReducer.loading ? (
         <Loader />
@@ -318,9 +310,7 @@ const RegisterPage = () => {
           </Col>
         </Row>
       )}
-      </Form>
     </FormContainer>
-
   );
 };
 
