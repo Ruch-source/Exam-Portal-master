@@ -5,12 +5,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -55,9 +52,6 @@ public class User implements UserDetails {
     )
     private Set<Role> roles;
 
-  
-
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<SimpleGrantedAuthority> authorities = new HashSet<>();
@@ -84,6 +78,4 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return isActive;
     }
-
-
 }

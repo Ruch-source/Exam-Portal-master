@@ -8,6 +8,8 @@ import { login } from "../actions/authActions";
 import Loader from "../components/Loader";
 import * as authConstants from "../constants/authConstants";
 
+import "./LoginPage.css"; 
+
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -53,16 +55,20 @@ const LoginPage = () => {
       });
     }
   }, []);
+
   
   return (
-    <FormContainer>
-      <h1>Sign In</h1>
-      <Form onSubmit={submitHandler}>
+    <FormContainer >
+       {/* Added class for header styling */}
+      <Form onSubmit={submitHandler} className="login-form mt-5"> 
+      <h1 className="login-header  fw-bolder text-decoration-underline">Login </h1>
         <Form.Group className="my-3" controlId="username">
-          <Form.Label>User Name</Form.Label>
+          <Form.Label className="fw-semibold">User Name</Form.Label>
           <Form.Control
             type="text"
+            
             placeholder="Enter User Name"
+            className="border-dark"
             value={username}
             onChange={(e) => {
               setUsername(e.target.value);
@@ -71,20 +77,27 @@ const LoginPage = () => {
         </Form.Group>
 
         <Form.Group className="my-3" controlId="password">
-          <Form.Label>Password</Form.Label>
+          <Form.Label className="fw-semibold" >Password</Form.Label>
           <InputGroup>
             <Form.Control
               type={`${passwordType}`}
               placeholder="Enter Password"
+              className="border-dark"
+              
               value={password}
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
             />
-            <Button
+           <Button
               onClick={showPasswordHandler}
               variant=""
-              style={{ border: "1px solid black" }}
+              style={{
+                border: "1px solid black",
+                backgroundColor: "transparent",
+                color: "black",
+                transition: "color 0.3s ease, background-color 0.3s ease",
+              }}
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </Button>
@@ -93,13 +106,12 @@ const LoginPage = () => {
 
         <Button
           variant=""
-          className="my-3"
+          className="form-control lh-1 rounded-2  my-3 "style={{ backgroundColor: "rgb(68, 177, 49)" }}// Added class for button styling
           type="submit"
-          style={{ backgroundColor: "rgb(68 177 49)", color: "white" }}
         >
           Login
         </Button>
-      </Form>
+      
 
       {loginReducer.loading ? (
         <Loader />
@@ -107,12 +119,13 @@ const LoginPage = () => {
         <Row className="py-3">
           <Col>
             New Customer?{" "}
-            <Link to="/register" style={{ color: "rgb(68 177 49)" }}>
+            <Link to="/register" className="register-link">
               Register
             </Link>
           </Col>
         </Row>
       )}
+      </Form>
     </FormContainer>
   );
 };

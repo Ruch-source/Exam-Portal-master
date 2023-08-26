@@ -3,14 +3,9 @@ package com.project.examportalbackend.controllers;
 import com.project.examportalbackend.models.Question;
 import com.project.examportalbackend.models.Quiz;
 import com.project.examportalbackend.models.QuizResult;
-import com.project.examportalbackend.models.User;
-import com.project.examportalbackend.repository.UserRepository;
 import com.project.examportalbackend.services.QuestionService;
 import com.project.examportalbackend.services.QuizResultService;
 import com.project.examportalbackend.services.QuizService;
-
-import io.micrometer.core.ipc.http.HttpSender.Response;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,9 +23,6 @@ public class QuizResultController {
     private QuestionService questionService;
     @Autowired
     private QuizService quizService;
-
-    @Autowired
-    private UserRepository userRepository;
 
     @Autowired
     private QuizResultService quizResultService;
@@ -55,11 +47,8 @@ public class QuizResultController {
         }
         float totalObtainedMarks = numCorrectAnswers*marksPerQuestion;
 
-        User user = userRepository.findByUserId(userId);
-        
         QuizResult quizResult = new QuizResult();
         quizResult.setUserId(userId);
-        quizResult.setUser(user);
         quizResult.setQuiz(quizService.getQuiz(quizId));
         quizResult.setTotalObtainedMarks(totalObtainedMarks);
         final ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Asia/Kolkata"));
