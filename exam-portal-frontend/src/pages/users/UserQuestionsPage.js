@@ -56,7 +56,7 @@ const UserQuestionsPage = () => {
     const answers = JSON.parse(localStorage.getItem("answers"));
     if (isTimesUp) {
       submitQuiz(dispatch, userId, quizId, answers, token).then((data) => {
-        if (data.type === quizResultConstants.ADD_QUIZ_RESULT_SUCCESS) {
+        if (data.type == quizResultConstants.ADD_QUIZ_RESULT_SUCCESS) {
           swal(
             "Quiz Submitted!",
             `You scored ${data.payload.totalObtainedMarks} marks in ${quizTitle} quiz.`,

@@ -7,7 +7,7 @@ const register = async (user) => {
       console.log(
         "authService:register() Success: ",
         user.username,
-        " successfully registerd."
+        "successfully registered."
       );
       return { isRegistered: true, error: null };
     } else {

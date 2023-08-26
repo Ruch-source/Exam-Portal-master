@@ -78,7 +78,7 @@ const AdminAddCategoryPage = () => {
             </Form.Group>
 
             <Button
-              className="my-3 adminAddCategoryPage__content--button"
+              className="my-3 adminAddCategoryPage__content--button bg-info"
               type="submit"
               variant=""
             >

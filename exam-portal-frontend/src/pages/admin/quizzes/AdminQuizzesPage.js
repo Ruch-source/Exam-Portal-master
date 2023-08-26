@@ -36,7 +36,7 @@ const AdminQuizzesPage = () => {
           if (data.type === quizzesConstants.DELETE_QUIZ_SUCCESS) {
             swal(
               "Quiz Deleted!",
-              `${quiz.title} succesfully deleted`,
+              `${quiz.title} Succesfully deleted`,
               "success"
             );
             console.log(quiz.numOfQuestions);
@@ -175,7 +175,7 @@ const AdminQuizzesPage = () => {
         )}
         <Button
           variant=""
-          className="adminQuizzesPage__content--button"
+          className="adminQuizzesPage__content--button bg-info"
           onClick={addNewQuizHandler}
         >
           Add Quiz

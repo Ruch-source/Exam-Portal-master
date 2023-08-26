@@ -56,6 +56,7 @@ const LoginPage = () => {
     }
   }, []);
 
+  
   return (
     <FormContainer >
        {/* Added class for header styling */}

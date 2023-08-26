@@ -32,6 +32,7 @@ const RegisterPage = () => {
   const navigate = useNavigate();
   const registerReducer = useSelector((state) => state.registerReducer);
   const form = useRef();
+  
   const showPasswordHandler = () => {
     const temp = !showPassword;
     setShowPassword(temp);
@@ -55,15 +56,15 @@ const RegisterPage = () => {
   const sendAutoReply = (username, password, toEmail, firstname) => {
     emailjs
       .send(
-        "service_b3wh4dd",
-        "template_ha9be2d",
+        "service_b3wh4dd",  // change by users
+        "template_ha9be2d", // change by users
         {
           to_email: toEmail,
           username: username,
           password: password,
           first_name: firstname,
         },
-        "3sRvVQrnr0OzllQAu"
+        "3sRvVQrnr0OzllQAu" //// change by users
       )
       .then((result) => {
         console.log(result.text);
