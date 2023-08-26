@@ -32,6 +32,7 @@ const RegisterPage = () => {
   const navigate = useNavigate();
   const registerReducer = useSelector((state) => state.registerReducer);
   const form = useRef();
+  
   const showPasswordHandler = () => {
     const temp = !showPassword;
     setShowPassword(temp);

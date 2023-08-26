@@ -145,7 +145,7 @@ const AdminCategoriesPage = () => {
         )}
         <Button
           variant=""
-          className="adminCategoriesPage__content--button"
+          className="adminCategoriesPage__content--button bg-info"
           onClick={addNewCategoryHandler}
         >
           Add Category
