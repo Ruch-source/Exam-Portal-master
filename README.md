@@ -1,4 +1,4 @@
-# Exam-Portal  //Pawan Ramteke!!!!
+# Exam-Portal {EXAM EDGE}
 
 This is a webapp built using Spring-boot and ReactJS that provides functionality to conduct and take quizzes. Admin can add, update, delete different quizzes, the categories to which these quizzes belongs and also questions of those quizzes. While normal user can attempt those quizzes as well as see the scorecards of their previous attempts.
 
@@ -56,7 +56,7 @@ This is a webapp built using Spring-boot and ReactJS that provides functionality
   <img src="https://user-images.githubusercontent.com/56812557/212474255-a5c1f353-6941-44f4-865f-0ab8f8f3ea55.png" alt="User Quiz Submitted Alert" width="100%" height="100%" >
 
 - User Quiz Manual Page<br>
-<img src="https://user-images.githubusercontent.com/56812557/212474248-5e5fa9f7-041e-48b1-8e56-b6b71f91ae50.png" alt="User Quiz Manual Page" width="100%" height="100%" >
+  <img src="https://user-images.githubusercontent.com/56812557/212474248-5e5fa9f7-041e-48b1-8e56-b6b71f91ae50.png" alt="User Quiz Manual Page" width="100%" height="100%" >
 
 - User Report Card Page<br>
   <img src="https://user-images.githubusercontent.com/56812557/212474256-c58c7c51-adb9-4b82-a75b-d9c8d3f09220.png" alt="User Report Card Page" width="100%" height="100%" >
